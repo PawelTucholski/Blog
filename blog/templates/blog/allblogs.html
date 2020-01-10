@@ -57,7 +57,7 @@
             <div class="navbar-nav ml-auto">
                 <a class="nav-item nav-link" href="#">Twitter</a>
                 <a class="nav-item nav-link" href="#">Resume</a>
-                <a class="nav-item nav-link" href="#">Blog</a>
+                <a class="nav-item nav-link active" href="#">Blog</a>
                 <!--                <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
             </div>
         </div>
@@ -65,39 +65,22 @@
 </header>
 
 <main role="main">
+    <div class="container">
+        <h1 class="text-center pt-3">Blog</h1>
+        <br />
+        <h2>Latest posts</h2>
+        <hr />
 
-    <section class="jumbotron text-center">
-        <div class="container">
-            <h1>Hi, I'm Pawel</h1>
-            <p class="lead text-muted">Tworzę piękno i harmonię - gdziekolwiek się pojawię. Po mojej prawicy zasiada
-                czerwony, Galaktyczny Wędrowiec. Po mojej lewicy – niebieska, wiodąca Moc. Przez życie prowadzi mnie
-                białe, Rytmiczne Zwierciadło. Witajcie w moim świecie! Bawcie się i cieszcie razem ze mną.</p>
-            <p>
-                <a href="#" class="btn btn-primary my-2">Email Me!</a>
-<!--                <a href="#" class="btn btn-secondary my-2">Secondary action</a>-->
-            </p>
-        </div>
-    </section>
+        {% for blog in blogs.all %}
+        <a href="" > <h3>{{ blog.title }}</h3></a>
+        {{ blog.publication_date }}
+        <br />
+        <img src="{{ blog.image.url }}" class="img-fluid" alt="" width="200" height="200">
+        <br />
+        <p>{{ blog.body }}</p>
+        {% endfor %}
 
-    <div class="album py-5 bg-light">
-        <div class="container">
-
-            <div class="row">
-                {% for job in jobs.all %}
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img src="{{ jobs.image.url }}" alt="" class="class-img-top">
-                        <div class="card-body">
-                            <p>text: {{ jobs.image.url }}</p>
-                            <p class="card-text">{{ job.summary }}</p>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
     </div>
-
 </main>
 
 <footer class="text-muted">
